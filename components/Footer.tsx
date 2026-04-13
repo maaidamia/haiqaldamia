@@ -28,10 +28,11 @@ const GeometricOrnament = () => (
 const QUICK_LINKS = [
   { label: "Our Story", id: "our-story" },
   { label: "Event Details", id: "event-details" },
+  { label: "Dress Code", id: "dress-code" },
   { label: "RSVP", id: "rsvp" },
   { label: "Gallery", id: "gallery" },
-  { label: "Registry", id: "registry" },
-  { label: "Travel", id: "travel" },
+  { label: "Salam Kaut", id: "salam-kaut" },
+  { label: "FAQ", id: "faq" },
 ];
 
 export default function Footer() {
@@ -48,11 +49,14 @@ export default function Footer() {
             Together in love
           </p>
           <h2 className="font-serif text-5xl md:text-6xl font-light italic text-ivory">
-            Aisyah <span className="text-gold">&amp;</span> Razif
+            Maisa <span className="text-gold">&amp;</span> Haiqal
           </h2>
           <GeometricOrnament />
+          <p className="font-serif text-lg italic text-gold/70">
+            #HaiMaiLove
+          </p>
           <p className="font-sans text-xs tracking-[0.2em] uppercase text-ivory/50">
-            14 June 2026 · Kuala Lumpur
+            19 September 2026 · Klang
           </p>
         </div>
 
@@ -81,11 +85,11 @@ export default function Footer() {
           <p className="font-sans text-xs text-ivory/40 leading-relaxed">
             Questions? Reach us at{" "}
             <a
-              href="mailto:aisyahrazif2026@gmail.com"
+              href="mailto:haimailove2026@gmail.com"
               className="text-gold/70 hover:text-gold transition-colors"
               aria-label="Email the couple"
             >
-              aisyahrazif2026@gmail.com
+              haimailove2026@gmail.com
             </a>
           </p>
         </div>

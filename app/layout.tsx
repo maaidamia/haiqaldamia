@@ -18,12 +18,13 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  title: "Aisyah & Razif | 14 June 2026",
+  title: "Maisa & Haiqal | 19 September 2026 | #HaiMaiLove",
   description:
-    "Join us as we celebrate our wedding. RSVP and find all the details you need for our special day.",
+    "Join Maisa & Haiqal as they celebrate their Akad Nikah at Rumah Abang Jamil, Klang. RSVP and find all the details for our special evening.",
   openGraph: {
-    title: "Aisyah & Razif | 14 June 2026",
-    description: "We are getting married! Join us to celebrate.",
+    title: "Maisa & Haiqal | 19 September 2026",
+    description:
+      "We are getting married! Join us at Rumah Abang Jamil, Klang. #HaiMaiLove",
     type: "website",
   },
 };

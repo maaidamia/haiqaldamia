@@ -11,11 +11,11 @@ const NAV_ITEMS: NavItem[] = [
   { id: "hero", label: "Home" },
   { id: "our-story", label: "Our Story" },
   { id: "event-details", label: "Details" },
+  { id: "dress-code", label: "Dress Code" },
   { id: "rsvp", label: "RSVP" },
   { id: "gallery", label: "Gallery" },
-  { id: "registry", label: "Registry" },
+  { id: "salam-kaut", label: "Salam Kaut" },
   { id: "faq", label: "FAQ" },
-  { id: "travel", label: "Travel" },
 ];
 
 export default function Nav() {
@@ -72,7 +72,7 @@ export default function Nav() {
           className="font-serif text-xl font-semibold text-wood tracking-widest"
           aria-label="Go to top"
         >
-          A <span className="text-gold">&amp;</span> R
+          M <span className="text-gold">&amp;</span> H
         </button>
 
         {/* Desktop nav */}

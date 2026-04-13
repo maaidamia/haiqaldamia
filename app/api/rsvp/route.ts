@@ -3,18 +3,17 @@ import { google } from "googleapis";
 
 type RSVPPayload = {
   name: string;
-  attending: "yes" | "no";
-  guests: number;
-  meal: string;
-  notes: string;
+  pax: number;
+  phone: string;
+  dietary: string;
 };
 
 export async function POST(req: NextRequest) {
   try {
     const body = (await req.json()) as RSVPPayload;
-    const { name, attending, guests, meal, notes } = body;
+    const { name, pax, phone, dietary } = body;
 
-    if (!name || !attending) {
+    if (!name || !phone) {
       return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 }
@@ -39,17 +38,16 @@ export async function POST(req: NextRequest) {
 
     await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
-      range: "Sheet1!A:F",
+      range: "Sheet1!A:E",
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values: [
           [
             timestamp,
             name,
-            attending === "yes" ? guests : 0,
-            attending,
-            meal || "N/A",
-            notes || "",
+            phone,
+            pax,
+            dietary || "",
           ],
         ],
       },

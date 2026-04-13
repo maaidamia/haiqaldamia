@@ -11,42 +11,42 @@ const FAQS: FAQItem[] = [
   {
     question: "What is the dress code?",
     answer:
-      "For the Akad Nikah, we request traditional Malay attire in muted pastel or earth tones. For the Walimatul Urus reception, rich jewel tones are warmly welcomed — deep emeralds, burgundy, and navy pair beautifully with the décor. Please avoid white and bright yellow (kuning), which are reserved for the bridal party.",
+      "Our theme is Nostalgia Malaya. Ladies are encouraged to wear Baju Kurung Kedah or a classic Kebaya, while gentlemen are welcome in Baju Melayu Teluk Belanga. We suggest earthy tones or vintage pastels. Please avoid white or off-white (reserved for the bride) and bright yellow. For full details and colour swatches, refer to the Dress Code section on this page.",
   },
   {
-    question: "Is the event family-friendly?",
+    question: "Is this an adults-only event?",
     answer:
-      "Absolutely. Children are welcome at both ceremonies. Please indicate the number of children when you RSVP so we can prepare child-friendly meal options and ensure comfortable seating for families.",
+      "Yes. We love your little ones, but to maintain the intimate atmosphere of our evening celebration, we kindly request that only adults attend. We hope you understand and appreciate the opportunity to enjoy a night out.",
   },
   {
-    question: "Will there be parking available?",
+    question: "Can I bring a plus-one or additional guests?",
     answer:
-      "Yes, ample parking is available at both venues. For the Akad Nikah at Masjid Wilayah, use the lower car park off Jalan Duta. For the Walimatul Urus at Dewan Perdana Felda, parking is available on-site. We recommend arriving slightly early on busy roads.",
+      "Due to our intimate venue capacity of 300 guests, this invitation is extended exclusively to you and those named on your invite. We are unable to accommodate additional guests beyond those listed. Thank you for your understanding.",
+  },
+  {
+    question: "Is there parking at Rumah Abang Jamil?",
+    answer:
+      "Yes, parking is available in the compound and surrounding area of Rumah Abang Jamil. We recommend arriving slightly earlier to secure a spot. Use the Google Maps or Waze links in the Event Details section for directions.",
   },
   {
     question: "What time should I arrive?",
     answer:
-      "We ask all guests to arrive at least 15 minutes before each ceremony. The Akad Nikah begins at 10:00 AM sharp. Doors for the Walimatul Urus open at 12:30 PM, with lunch served from 1:00 PM.",
-  },
-  {
-    question: "Are photographs allowed?",
-    answer:
-      "Photography is encouraged during the reception. We kindly ask guests to keep phones and cameras away during the solemnisation (Akad Nikah) itself so the moment remains reverent. Our official photographer will capture everything — photos will be shared after the day.",
+      "The event begins at 7:00 PM. We recommend arriving by 6:45 PM so you can be comfortably seated before the ceremony starts. The evening will conclude by 11:00 PM.",
   },
   {
     question: "I have dietary restrictions. What should I do?",
     answer:
-      "All food served is halal. If you have specific allergies or dietary requirements beyond the options in the RSVP form, please note them in the 'Dietary Notes' field or reach out to us directly. We will do our best to accommodate.",
+      "All food served is halal. If you have specific allergies or dietary needs, please note them in the Dietary Restrictions field when completing your RSVP. We will do our best to accommodate your needs.",
   },
   {
-    question: "Can I bring a plus-one?",
+    question: "Are photographs allowed?",
     answer:
-      "Due to venue capacity, we are unable to accommodate additional guests beyond those named on the invitation. Please list the total number of attendees in your party when RSVPing.",
+      "We warmly welcome photographs during the reception and celebration. During the solemnisation (Akad Nikah) itself, we kindly ask that phones and cameras be kept aside so the moment remains reverent. Our official photographer will capture everything, and photos will be shared after the event.",
   },
   {
     question: "How can I contact the couple?",
     answer:
-      "You can reach Aisyah at +60 12-XXX XXXX or Razif at +60 11-XXX XXXX for any questions not answered here. We will do our best to respond within a day.",
+      "For any questions not answered here, please reach out to Maisa at +60 XX-XXX XXXX or Haiqal at +60 XX-XXX XXXX. You can also email us at (your email). We will do our best to respond within a day.",
   },
 ];
 

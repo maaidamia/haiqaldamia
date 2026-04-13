@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const WEDDING_DATE = new Date("2026-06-14T10:00:00");
+const WEDDING_DATE = new Date("2026-09-19T19:00:00");
 
 type TimeLeft = {
   days: number;
@@ -33,7 +33,6 @@ const CountdownUnit = ({ value, label }: { value: number; label: string }) => (
   </div>
 );
 
-// Malay-inspired geometric ornament rendered as SVG
 const GeometricOrnament = () => (
   <svg
     viewBox="0 0 200 30"
@@ -82,7 +81,7 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 w-24 h-24 border-b-2 border-l-2 border-wood/20" />
       <div className="absolute bottom-0 right-0 w-24 h-24 border-b-2 border-r-2 border-wood/20" />
 
-      {/* Background subtle pattern — diagonal hatching */}
+      {/* Background subtle pattern */}
       <div
         className="absolute inset-0 opacity-[0.025]"
         style={{
@@ -97,34 +96,48 @@ export default function Hero() {
       />
 
       <div className="relative z-10 flex flex-col items-center text-center px-6 py-20">
-        {/* Pre-title */}
         <p className="font-sans text-xs tracking-[0.3em] uppercase text-gold mb-8 animate-fade-in">
           Together with their families
         </p>
 
+        {/* Illustration placeholder — replace src with your custom illustration */}
+        <div className="mb-8 w-48 h-48 md:w-64 md:h-64 flex items-center justify-center">
+          <img
+            src="/illustration-hero.png"
+            alt="Maisa & Haiqal illustration"
+            className="w-full h-full object-contain"
+            onError={(e) => {
+              (e.target as HTMLImageElement).style.display = "none";
+            }}
+          />
+        </div>
+
         {/* Names */}
         <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 mb-6">
           <h1 className="font-serif text-6xl md:text-8xl font-light italic text-wood leading-none">
-            Aisyah
+            Maisa
           </h1>
           <span className="font-serif text-3xl md:text-5xl font-light text-gold">&amp;</span>
           <h1 className="font-serif text-6xl md:text-8xl font-light italic text-wood leading-none">
-            Razif
+            Haiqal
           </h1>
         </div>
 
-        {/* Ornament */}
         <GeometricOrnament />
 
-        {/* Date & location */}
-        <div className="mt-6 mb-10 flex flex-col items-center gap-1">
+        {/* Date, location & hashtag */}
+        <div className="mt-6 mb-4 flex flex-col items-center gap-1">
           <p className="font-sans text-xs tracking-[0.25em] uppercase text-wood-light">
-            14 June 2026
+            19 September 2026
           </p>
           <p className="font-sans text-xs tracking-[0.2em] uppercase text-wood-light">
-            Dewan Serbaguna, Kuala Lumpur
+            Rumah Abang Jamil, Klang
           </p>
         </div>
+
+        <p className="font-serif text-lg md:text-xl italic text-gold mb-10">
+          #HaiMaiLove
+        </p>
 
         {/* Countdown */}
         {mounted && (

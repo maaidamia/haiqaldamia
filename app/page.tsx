@@ -2,11 +2,11 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import OurStory from "@/components/OurStory";
 import EventDetails from "@/components/EventDetails";
+import DressCode from "@/components/DressCode";
 import RSVP from "@/components/RSVP";
 import Gallery from "@/components/Gallery";
-import Registry from "@/components/Registry";
+import SalamKaut from "@/components/SalamKaut";
 import FAQ from "@/components/FAQ";
-import Travel from "@/components/Travel";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -16,11 +16,11 @@ export default function Home() {
       <Hero />
       <OurStory />
       <EventDetails />
+      <DressCode />
       <RSVP />
       <Gallery />
-      <Registry />
+      <SalamKaut />
       <FAQ />
-      <Travel />
       <Footer />
     </main>
   );

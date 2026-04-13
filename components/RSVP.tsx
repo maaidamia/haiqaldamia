@@ -4,20 +4,18 @@ import { useState } from "react";
 
 type FormState = {
   name: string;
-  attending: "yes" | "no" | "";
-  guests: number;
-  meal: string;
-  notes: string;
+  pax: number;
+  phone: string;
+  dietary: string;
 };
 
 type SubmitStatus = "idle" | "loading" | "success" | "error";
 
 const initialForm: FormState = {
   name: "",
-  attending: "",
-  guests: 1,
-  meal: "",
-  notes: "",
+  pax: 1,
+  phone: "",
+  dietary: "",
 };
 
 const inputClass =
@@ -31,23 +29,23 @@ export default function RSVP() {
   const [errorMsg, setErrorMsg] = useState("");
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleGuestChange = (delta: number) => {
+  const handlePaxChange = (delta: number) => {
     setForm((prev) => ({
       ...prev,
-      guests: Math.max(1, Math.min(10, prev.guests + delta)),
+      pax: Math.max(1, Math.min(10, prev.pax + delta)),
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name.trim() || !form.attending || !form.meal) {
-      setErrorMsg("Please fill in all required fields.");
+    if (!form.name.trim() || !form.phone.trim()) {
+      setErrorMsg("Please fill in your name and phone number.");
       return;
     }
     setErrorMsg("");
@@ -73,7 +71,7 @@ export default function RSVP() {
         {/* Header */}
         <div className="text-center mb-14">
           <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-gold mb-3">
-            Kindly respond by 1 May 2026
+            Kindly respond by 1 September 2026
           </p>
           <h2 className="font-serif text-5xl md:text-6xl font-light italic text-wood">
             RSVP
@@ -82,8 +80,17 @@ export default function RSVP() {
             <span className="text-gold text-xl">✦</span>
           </div>
           <p className="font-sans text-sm text-wood-light mt-6 leading-relaxed">
-            Your presence would mean the world to us. Please let us know if you can join
-            the celebration.
+            Your presence would mean the world to us. Please confirm your attendance
+            so we can prepare for a wonderful evening together.
+          </p>
+        </div>
+
+        {/* Adults-only and exclusive invitation note */}
+        <div className="border border-gold/20 bg-ivory/80 p-5 text-center mb-10">
+          <p className="font-sans text-xs text-wood-light leading-relaxed">
+            This RSVP is for the named guests on your invitation only. Kindly note
+            that this is an <span className="font-medium text-wood">adults-only</span>{" "}
+            celebration.
           </p>
         </div>
 
@@ -109,7 +116,8 @@ export default function RSVP() {
               Thank you!
             </h3>
             <p className="font-sans text-sm text-wood-light max-w-xs leading-relaxed">
-              We have received your response and cannot wait to celebrate with you.
+              We have received your RSVP and cannot wait to celebrate with you at
+              Rumah Abang Jamil.
             </p>
             <button
               onClick={() => setStatus("idle")}
@@ -139,107 +147,64 @@ export default function RSVP() {
               />
             </div>
 
-            {/* Attending */}
-            <div className="flex flex-col gap-3">
+            {/* Phone number */}
+            <div className="flex flex-col gap-2">
+              <label htmlFor="phone" className={labelClass}>
+                Phone Number <span className="text-gold">*</span>
+              </label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                value={form.phone}
+                onChange={handleChange}
+                placeholder="e.g. 012-345 6789"
+                required
+                aria-required="true"
+                className={inputClass}
+              />
+            </div>
+
+            {/* Number of pax */}
+            <div className="flex flex-col gap-2">
               <span className={labelClass}>
-                Will you be attending? <span className="text-gold">*</span>
+                Number of Pax <span className="text-gold">*</span>
               </span>
-              <div className="flex gap-4">
-                {(["yes", "no"] as const).map((opt) => (
-                  <label
-                    key={opt}
-                    className={`flex items-center gap-2 cursor-pointer font-sans text-sm transition-colors ${
-                      form.attending === opt ? "text-wood" : "text-wood-light"
-                    }`}
-                  >
-                    <span
-                      className={`w-4 h-4 rounded-full border flex-shrink-0 transition-colors ${
-                        form.attending === opt
-                          ? "border-gold bg-gold"
-                          : "border-cream-dark"
-                      }`}
-                    />
-                    <input
-                      type="radio"
-                      name="attending"
-                      value={opt}
-                      checked={form.attending === opt}
-                      onChange={handleChange}
-                      className="sr-only"
-                      aria-label={opt === "yes" ? "Joyfully accept" : "Regretfully decline"}
-                    />
-                    {opt === "yes" ? "Joyfully Accept" : "Regretfully Decline"}
-                  </label>
-                ))}
+              <div className="flex items-center gap-4">
+                <button
+                  type="button"
+                  onClick={() => handlePaxChange(-1)}
+                  aria-label="Decrease guest count"
+                  className="w-8 h-8 border border-cream-dark text-wood-light hover:border-gold hover:text-gold transition-colors flex items-center justify-center font-sans text-lg"
+                >
+                  −
+                </button>
+                <span className="font-serif text-2xl text-wood w-8 text-center tabular-nums">
+                  {form.pax}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => handlePaxChange(1)}
+                  aria-label="Increase guest count"
+                  className="w-8 h-8 border border-cream-dark text-wood-light hover:border-gold hover:text-gold transition-colors flex items-center justify-center font-sans text-lg"
+                >
+                  +
+                </button>
+                <span className="font-sans text-xs text-wood-light/60">
+                  (as per invitation)
+                </span>
               </div>
             </div>
 
-            {/* Number of guests — only shown if attending */}
-            {form.attending === "yes" && (
-              <>
-                <div className="flex flex-col gap-2">
-                  <span className={labelClass}>Number of Guests</span>
-                  <div className="flex items-center gap-4">
-                    <button
-                      type="button"
-                      onClick={() => handleGuestChange(-1)}
-                      aria-label="Decrease guest count"
-                      className="w-8 h-8 border border-cream-dark text-wood-light hover:border-gold hover:text-gold transition-colors flex items-center justify-center font-sans text-lg"
-                    >
-                      −
-                    </button>
-                    <span className="font-serif text-2xl text-wood w-8 text-center tabular-nums">
-                      {form.guests}
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() => handleGuestChange(1)}
-                      aria-label="Increase guest count"
-                      className="w-8 h-8 border border-cream-dark text-wood-light hover:border-gold hover:text-gold transition-colors flex items-center justify-center font-sans text-lg"
-                    >
-                      +
-                    </button>
-                    <span className="font-sans text-xs text-wood-light/60">
-                      (max 10)
-                    </span>
-                  </div>
-                </div>
-
-                {/* Meal preference */}
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="meal" className={labelClass}>
-                    Meal Preference <span className="text-gold">*</span>
-                  </label>
-                  <select
-                    id="meal"
-                    name="meal"
-                    value={form.meal}
-                    onChange={handleChange}
-                    required
-                    aria-required="true"
-                    className={`${inputClass} cursor-pointer`}
-                  >
-                    <option value="" disabled>
-                      Select a meal preference
-                    </option>
-                    <option value="standard">Standard (Halal)</option>
-                    <option value="vegetarian">Vegetarian</option>
-                    <option value="vegan">Vegan</option>
-                    <option value="child">Child Meal</option>
-                  </select>
-                </div>
-              </>
-            )}
-
-            {/* Dietary notes */}
+            {/* Dietary restrictions */}
             <div className="flex flex-col gap-2">
-              <label htmlFor="notes" className={labelClass}>
-                Dietary Notes or Allergies
+              <label htmlFor="dietary" className={labelClass}>
+                Dietary Restrictions
               </label>
               <textarea
-                id="notes"
-                name="notes"
-                value={form.notes}
+                id="dietary"
+                name="dietary"
+                value={form.dietary}
                 onChange={handleChange}
                 placeholder="Any dietary restrictions or allergies we should know about?"
                 rows={3}

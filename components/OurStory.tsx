@@ -7,50 +7,57 @@ type StoryEntry = {
   title: string;
   body: string;
   side: "left" | "right";
+  illustration?: string;
 };
 
 const STORY: StoryEntry[] = [
   {
-    date: "March 2020",
-    title: "First Meeting",
+    date: "2013",
+    title: "Where It All Began",
     body:
-      "We crossed paths at a mutual friend's gathering in Bangsar — a quiet dinner that neither of us planned to attend. A shared laugh over cold rendang started something neither of us expected.",
+      "Two 15-year-olds crossed paths in high school — shy glances across the canteen, scribbled notes passed between classes, and a friendship that quietly grew into something neither of us could ignore.",
     side: "left",
+    illustration: "/illustrations/story-01.png",
   },
   {
-    date: "August 2020",
-    title: "First Date",
+    date: "2015 – 2018",
+    title: "Growing Up Together",
     body:
-      "A walk through Taman Tasik Perdana turned into four hours of conversation, wandering through the Bird Park and ending with teh tarik at a roadside stall neither of us had visited before.",
+      "Through SPM study sessions, after-school outings, and the beautiful chaos of teenage life, we learned what it meant to truly care for someone. Every milestone was better because we shared it.",
     side: "right",
+    illustration: "/illustrations/story-02.png",
   },
   {
-    date: "December 2021",
-    title: "Official",
+    date: "2018 – 2022",
+    title: "Through University & Beyond",
     body:
-      "After a year of stolen afternoons and long phone calls, Razif asked Aisyah to be his officially — on the rooftop of his apartment, strung with warm fairy lights and a handwritten letter.",
+      "University tested our bond with distance and new worlds, but late-night calls and long drives home kept us anchored. We grew individually, yet always grew back toward each other.",
     side: "left",
+    illustration: "/illustrations/story-03.png",
   },
   {
-    date: "June 2023",
-    title: "Meeting the Families",
+    date: "2023 – 2025",
+    title: "Building Our Life",
     body:
-      "A Sunday merisik that felt less like a formal occasion and more like two families that had been waiting to find each other. Both mothers cried. Both fathers pretended not to.",
+      "Stepping into careers and adulthood side by side, we found our rhythm as a team — navigating new cities, new responsibilities, and a shared dream of building a future together.",
     side: "right",
+    illustration: "/illustrations/story-04.png",
   },
   {
-    date: "February 2026",
+    date: "2026",
     title: "The Proposal",
     body:
-      "At the same table where they had their very first conversation — Razif got down on one knee with his late grandmother's ring. Aisyah said yes before he finished the question.",
+      "After 13 years of growing together, the question was never if — only when. The moment it happened, it felt like everything had been leading to this single, perfect yes.",
     side: "left",
+    illustration: "/illustrations/story-05.png",
   },
   {
-    date: "14 June 2026",
+    date: "19 September 2026",
     title: "Our Wedding Day",
     body:
       "Now it is your turn to witness the next chapter. We are honoured to celebrate with the people who have shaped our story from the very beginning.",
     side: "right",
+    illustration: "/illustrations/story-06.png",
   },
 ];
 
@@ -118,6 +125,19 @@ const TimelineEntry = ({ entry, index }: { entry: StoryEntry; index: number }) =
 
 const EntryCard = ({ entry }: { entry: StoryEntry }) => (
   <div className="py-6">
+    {entry.illustration && (
+      <div className="w-20 h-20 mb-4">
+        <img
+          src={entry.illustration}
+          alt=""
+          className="w-full h-full object-contain opacity-80"
+          loading="lazy"
+          onError={(e) => {
+            (e.target as HTMLImageElement).style.display = "none";
+          }}
+        />
+      </div>
+    )}
     <p className="font-sans text-[10px] tracking-[0.2em] uppercase text-gold mb-1">
       {entry.date}
     </p>
@@ -137,7 +157,7 @@ export default function OurStory() {
         {/* Section header */}
         <div className="text-center mb-16">
           <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-gold mb-3">
-            How it began
+            13 years in the making
           </p>
           <h2 className="font-serif text-5xl md:text-6xl font-light italic text-wood">
             Our Story
@@ -145,6 +165,10 @@ export default function OurStory() {
           <div className="ornament mt-6 max-w-xs mx-auto">
             <span className="text-gold text-xl">✦</span>
           </div>
+          <p className="font-sans text-sm text-wood-light mt-6 leading-relaxed max-w-lg mx-auto">
+            High school sweethearts who fell in love at 15 and never looked back.
+            This is the story of 13 years — and the beginning of forever.
+          </p>
         </div>
 
         {/* Timeline */}

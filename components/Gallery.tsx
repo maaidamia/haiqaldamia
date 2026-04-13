@@ -85,17 +85,17 @@ export default function Gallery() {
         {/* Header */}
         <div className="text-center mb-14">
           <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-gold mb-3">
-            Captured moments
+            Down memory lane
           </p>
           <h2 className="font-serif text-5xl md:text-6xl font-light italic text-wood">
-            Gallery
+            Throwback
           </h2>
           <div className="ornament mt-6 max-w-xs mx-auto">
             <span className="text-gold text-xl">✦</span>
           </div>
           <p className="font-sans text-sm text-wood-light mt-6 leading-relaxed max-w-lg mx-auto">
-            A few frames from our journey together. Replace these with your own photographs
-            before publishing.
+            From high school corridors to today — a glimpse at 13 years of memories,
+            laughter, and love that brought us to this moment.
           </p>
         </div>
 

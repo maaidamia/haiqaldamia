@@ -6,7 +6,6 @@ type FormState = {
   name: string;
   pax: number;
   phone: string;
-  dietary: string;
 };
 
 type SubmitStatus = "idle" | "loading" | "success" | "error";
@@ -15,7 +14,6 @@ const initialForm: FormState = {
   name: "",
   pax: 1,
   phone: "",
-  dietary: "",
 };
 
 const inputClass =
@@ -194,22 +192,6 @@ export default function RSVP() {
                   (as per invitation)
                 </span>
               </div>
-            </div>
-
-            {/* Dietary restrictions */}
-            <div className="flex flex-col gap-2">
-              <label htmlFor="dietary" className={labelClass}>
-                Dietary Restrictions
-              </label>
-              <textarea
-                id="dietary"
-                name="dietary"
-                value={form.dietary}
-                onChange={handleChange}
-                placeholder="Any dietary restrictions or allergies we should know about?"
-                rows={3}
-                className={`${inputClass} resize-none`}
-              />
             </div>
 
             {/* Error message */}

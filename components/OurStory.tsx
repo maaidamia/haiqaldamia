@@ -15,49 +15,33 @@ const STORY: StoryEntry[] = [
     date: "2013",
     title: "Where It All Began",
     body:
-      "Two 15-year-olds crossed paths in high school — shy glances across the canteen, scribbled notes passed between classes, and a friendship that quietly grew into something neither of us could ignore.",
+      "It started in a public library — of all places. Between pages and passing glances, we became each other’s favorite distraction and never quite turned the page. We were just kids, unaware we had stumbled into the start of something beautiful.",
     side: "left",
     illustration: "/illustrations/story-01.png",
   },
   {
-    date: "2015 – 2018",
+    date: "2016 – 2023",
     title: "Growing Up Together",
     body:
-      "Through SPM study sessions, after-school outings, and the beautiful chaos of teenage life, we learned what it meant to truly care for someone. Every milestone was better because we shared it.",
+      "Growing up meant miles between us. Different cities, different paths — but somehow, we kept each other close over late-night calls, talking until the sun says good morning and neither of us wanted to say goodbye.",
     side: "right",
     illustration: "/illustrations/story-02.png",
   },
   {
-    date: "2018 – 2022",
-    title: "Through University & Beyond",
+    date: "2024 – 2025",
+    title: "The Same Wavelength",
     body:
-      "University tested our bond with distance and new worlds, but late-night calls and long drives home kept us anchored. We grew individually, yet always grew back toward each other.",
+      "One night, unplanned and unguarded, we found ourselves saying the same words — about us, about forever. That brief, subtle moment unfolded into a beautiful Merisik and Pertunangan. And suddenly, this dream had a heartbeat.",
     side: "left",
     illustration: "/illustrations/story-03.png",
-  },
-  {
-    date: "2023 – 2025",
-    title: "Building Our Life",
-    body:
-      "Stepping into careers and adulthood side by side, we found our rhythm as a team — navigating new cities, new responsibilities, and a shared dream of building a future together.",
-    side: "right",
-    illustration: "/illustrations/story-04.png",
-  },
-  {
-    date: "2026",
-    title: "The Proposal",
-    body:
-      "After 13 years of growing together, the question was never if — only when. The moment it happened, it felt like everything had been leading to this single, perfect yes.",
-    side: "left",
-    illustration: "/illustrations/story-05.png",
   },
   {
     date: "19 September 2026",
     title: "Our Wedding Day",
     body:
-      "Now it is your turn to witness the next chapter. We are honoured to celebrate with the people who have shaped our story from the very beginning.",
+      "Now it is your turn to witness the next chapter. We are honoured to celebrate with the people who have shaped our story from the earliest spark to this very moment.✨❤️",
     side: "right",
-    illustration: "/illustrations/story-06.png",
+    illustration: "/illustrations/story-04.png",
   },
 ];
 
@@ -166,7 +150,7 @@ export default function OurStory() {
             <span className="text-gold text-xl">✦</span>
           </div>
           <p className="font-sans text-sm text-wood-light mt-6 leading-relaxed max-w-lg mx-auto">
-            High school sweethearts who fell in love at 15 and never looked back.
+            Two kids who first found each other in 2013 — and somehow, never let go.
             This is the story of 13 years — and the beginning of forever.
           </p>
         </div>

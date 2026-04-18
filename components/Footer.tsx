@@ -83,13 +83,15 @@ export default function Footer() {
         {/* Contact */}
         <div className="text-center">
           <p className="font-sans text-xs text-ivory/40 leading-relaxed">
-            Questions? Reach us at{" "}
+            Questions? Find us on{" "}
             <a
-              href="mailto:haimailove2026@gmail.com"
+              href="https://www.instagram.com/maaidamia"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-gold/70 hover:text-gold transition-colors"
-              aria-label="Email the couple"
+              aria-label="Visit our Instagram profile"
             >
-              haimailove2026@gmail.com
+              @maaidamia
             </a>
           </p>
         </div>

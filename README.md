@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with `[create-next-app](https://nextjs.org/docs/app/api-reference/cli/create-next-app)`.
+# Maisa & Haiqal — Wedding Website
 
-## Getting Started
+A single-page wedding site built with [Next.js](https://nextjs.org) (App Router). It covers the story, venue and dress code, photo gallery, FAQ, and RSVP. RSVP submissions are appended to a Google Sheet via the Sheets API.
 
-First, run the development server:
+## Tech stack
+
+- **Next.js 14** and **React 18** with TypeScript
+- **Tailwind CSS** for styling
+- **Framer Motion** for motion
+- **Radix UI** (accordion) and **Yet Another React Lightbox** for the gallery
+- **Google APIs** (`googleapis`) for server-side RSVP writes to Sheets
+- Fonts: **Cormorant Garamond** and **Lato** via `next/font`
+
+## Local development
+
+Install dependencies and start the dev server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). The app entry is `app/page.tsx`; shared styles live in `app/globals.css`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Scripts
 
-This project uses `[next/font](https://nextjs.org/docs/app/building-your-application/optimizing/fonts)` to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command        | Description              |
+| -------------- | ------------------------ |
+| `npm run dev`  | Development server       |
+| `npm run build`| Production build         |
+| `npm run start`| Run production server    |
+| `npm run lint` | ESLint (Next.js config)  |
 
-## Learn More
+## RSVP and Google Sheets
 
-To learn more about Next.js, take a look at the following resources:
+The API route `app/api/rsvp/route.ts` accepts `POST` JSON with `name`, `phone`, and `pax`, then appends a row to **Sheet1** columns **A–D** (timestamp, name, phone, pax). Timestamps use the `Asia/Kuala_Lumpur` locale.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Set these environment variables where the app runs (e.g. `.env.local` for local dev, or your host’s dashboard for production):
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Variable | Purpose |
+| -------- | ------- |
+| `GOOGLE_SERVICE_ACCOUNT_EMAIL` | Service account email |
+| `GOOGLE_PRIVATE_KEY` | Private key (PEM). Use `\n` for newlines in a single-line env value; the code normalizes them |
+| `GOOGLE_SHEET_ID` | Target spreadsheet ID |
 
-## Deploy on Vercel
+Share the spreadsheet with the service account email (Editor) so it can append rows.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Deploy like any Next.js app: [Vercel](https://vercel.com) is a common choice. Add the same environment variables in the project settings so RSVP works in production.
+
+## Project structure (overview)
+
+- `app/` — App Router layout, global CSS, home page, and `api/rsvp` route
+- `components/` — Sections (Hero, Our Story, Event Details, Dress Code, RSVP, Gallery, FAQ, Footer, etc.)

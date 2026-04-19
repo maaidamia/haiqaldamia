@@ -1,13 +1,13 @@
 # Maisa & Haiqal — Wedding Website
 
-A single-page wedding site built with [Next.js](https://nextjs.org) (App Router). It covers the story, venue and dress code, photo gallery, FAQ, and RSVP. RSVP submissions are appended to a Google Sheet via the Sheets API.
+A single-page wedding site built with [Next.js](https://nextjs.org) (App Router). It covers the story, venue and dress code, FAQ, and RSVP. RSVP submissions are appended to a Google Sheet via the Sheets API.
 
 ## Tech stack
 
 - **Next.js 14** and **React 18** with TypeScript
 - **Tailwind CSS** for styling
 - **Framer Motion** for motion
-- **Radix UI** (accordion) and **Yet Another React Lightbox** for the gallery
+- **Radix UI** (accordion) for UI components
 - **Google APIs** (`googleapis`) for server-side RSVP writes to Sheets
 - Fonts: **Cormorant Garamond** and **Lato** via `next/font`
 
@@ -52,4 +52,4 @@ Deploy like any Next.js app: [Vercel](https://vercel.com) is a common choice. Ad
 ## Project structure (overview)
 
 - `app/` — App Router layout, global CSS, home page, and `api/rsvp` route
-- `components/` — Sections (Hero, Our Story, Event Details, Dress Code, RSVP, Gallery, FAQ, Footer, etc.)
+- `components/` — Sections (Hero, Our Story, Event Details, Dress Code, RSVP, FAQ, Footer, etc.)

@@ -15,7 +15,7 @@ const STORY: StoryEntry[] = [
     date: "2013",
     title: "Where It All Began",
     body:
-      "It started in a public library — of all places. Between pages and passing glances, we became each other’s favorite distraction and never quite turned the page. We were just kids, unaware we had stumbled into the start of something beautiful.",
+      "It started in a public library — of all places. Between pages and passing glances, we became each other’s favorite distraction and never quite turned the page. We were just kids, unaware we had stumbled into the start of something beautiful.🍎📖",
     side: "left",
     illustration: "/illustrations/story-01.png",
   },
@@ -23,7 +23,8 @@ const STORY: StoryEntry[] = [
     date: "2016 – 2023",
     title: "Growing Up Together",
     body:
-      "Growing up meant miles between us. Different cities, different paths — but somehow, we kept each other close over late-night calls, talking until the sun says good morning and neither of us wanted to say goodbye.",
+      //"Growing up meant miles between us. Different cities, different paths — but somehow, we kept each other close over late-night calls, talking until the sun says good morning and neither of us wanted to say goodbye.🌙🌤️",
+      "Growing up meant miles between us. Different cities, different paths. We grew individually, yet always grew back toward each other over late-night calls, talking until the sun said good morning but neither of us wanted to say goodbye.🌙🌤️",
     side: "right",
     illustration: "/illustrations/story-02.png",
   },
@@ -31,7 +32,7 @@ const STORY: StoryEntry[] = [
     date: "2024 – 2025",
     title: "The Same Wavelength",
     body:
-      "One night, unplanned and unguarded, we found ourselves saying the same words — about us, about forever. That brief, subtle moment unfolded into a beautiful Merisik and Pertunangan. And suddenly, this dream had a heartbeat.",
+      "One night, unplanned and unguarded, we found ourselves saying the same words — about us, about forever. That brief, subtle moment unfolded into a beautiful Merisik and Pertunangan. And suddenly, this dream had a heartbeat.💍💖",
     side: "left",
     illustration: "/illustrations/story-03.png",
   },

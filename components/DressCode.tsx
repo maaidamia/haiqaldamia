@@ -141,9 +141,7 @@ export default function DressCode() {
           </p>
           <p className="font-sans text-sm text-wood-light leading-relaxed">
             <span className="font-medium text-wood">White and off-white</span> (reserved
-            for the bride) and{" "}
-            <span className="font-medium text-wood">bright yellow</span> (reserved for
-            royalty in Malay tradition).
+            for the bride).
           </p>
         </div>
       </div>

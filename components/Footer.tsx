@@ -30,8 +30,6 @@ const QUICK_LINKS = [
   { label: "Event Details", id: "event-details" },
   { label: "Dress Code", id: "dress-code" },
   { label: "RSVP", id: "rsvp" },
-  { label: "Gallery", id: "gallery" },
-  { label: "Salam Kaut", id: "salam-kaut" },
   { label: "FAQ", id: "faq" },
 ];
 

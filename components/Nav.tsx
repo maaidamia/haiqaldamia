@@ -13,8 +13,6 @@ const NAV_ITEMS: NavItem[] = [
   { id: "event-details", label: "Details" },
   { id: "dress-code", label: "Dress Code" },
   { id: "rsvp", label: "RSVP" },
-  { id: "gallery", label: "Gallery" },
-  { id: "salam-kaut", label: "Salam Kaut" },
   { id: "faq", label: "FAQ" },
 ];
 

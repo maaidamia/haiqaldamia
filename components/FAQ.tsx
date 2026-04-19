@@ -11,7 +11,7 @@ const FAQS: FAQItem[] = [
   {
     question: "What is the dress code?",
     answer:
-      "Our theme is Nostalgia Malaya. Ladies are encouraged to wear Baju Kurung Kedah or a classic Kebaya, while gentlemen are welcome in Baju Melayu Teluk Belanga. We suggest earthy tones or vintage pastels. Please avoid white or off-white (reserved for the bride) and bright yellow. For full details and colour swatches, refer to the Dress Code section on this page.",
+      "Our theme is Nostalgia Malaya. Ladies are encouraged to wear Baju Kurung Kedah or a classic Kebaya, while gentlemen are welcome in Baju Melayu Teluk Belanga. We suggest earthy tones or vintage pastels. Please avoid white or off-white (reserved for the bride). For full details and colour swatches, refer to the Dress Code section on this page.",
   },
   {
     question: "Is this an adults-only event?",
@@ -34,11 +34,6 @@ const FAQS: FAQItem[] = [
       "The event begins at 7:00 PM. We recommend arriving by 6:45 PM so you can be comfortably seated before the ceremony starts. The evening will conclude by 11:00 PM.",
   },
   {
-    question: "I have dietary restrictions. What should I do?",
-    answer:
-      "All food served is halal. If you have specific allergies or dietary needs, please note them in the Dietary Restrictions field when completing your RSVP. We will do our best to accommodate your needs.",
-  },
-  {
     question: "Are photographs allowed?",
     answer:
       "We warmly welcome photographs during the reception and celebration. During the solemnisation (Akad Nikah) itself, we kindly ask that phones and cameras be kept aside so the moment remains reverent. Our official photographer will capture everything, and photos will be shared after the event.",
@@ -46,7 +41,7 @@ const FAQS: FAQItem[] = [
   {
     question: "How can I contact the couple?",
     answer:
-      "For any questions not answered here, please reach out to Maisa at +60 XX-XXX XXXX or Haiqal at +60 XX-XXX XXXX. You can also email us at (your email). We will do our best to respond within a day.",
+      "For any questions not answered here, please reach out to Maisa at +60132960591 or Haiqal at +60192729245.",
   },
 ];
 

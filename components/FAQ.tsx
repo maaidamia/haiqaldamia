@@ -11,7 +11,7 @@ const FAQS: FAQItem[] = [
   {
     question: "What is the dress code?",
     answer:
-      "Our theme is Nostalgia Malaya. Ladies are encouraged to wear Baju Kurung Kedah or a classic Kebaya, while gentlemen are welcome in Baju Melayu Teluk Belanga. We suggest earthy tones or vintage pastels. Please avoid white or off-white (reserved for the bride). For full details and colour swatches, refer to the Dress Code section on this page.",
+      "Our theme is Temasya Bangsawan Malaya—Classic Traditional / 1950s Era (Tradisional Klasik / Era 50-an). Think P. Ramlee and Saloma: Baju Kurung Kedah, Kebaya Sulam, and Baju Melayu Teluk Belanga worn with Kain Pelikat and Songkok are highly encouraged; gentlemen may also wear a Kemeja Batik. Suggested colours are shown on the Dress Code page under Warm & wood and Vintage & jewel. Please avoid white or off-white (reserved for the bride) and black. See the Dress Code section for the full wording and swatches.",
   },
   {
     question: "Is this an adults-only event?",

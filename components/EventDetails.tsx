@@ -96,7 +96,7 @@ export default function EventDetails() {
               label="Dress"
               value={
                 <span>
-                  Nostalgia Malaya —{" "}
+                  Temasya Bangsawan Malaya —{" "}
                   <button
                     onClick={() =>
                       document

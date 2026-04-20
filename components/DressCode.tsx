@@ -51,15 +51,21 @@ const SwatchGroup = ({
     <p className="font-sans text-[10px] tracking-[0.2em] uppercase text-gold">
       {title}
     </p>
-    <div className="flex gap-3">
+    <div className="flex gap-4">
       {swatches.map((swatch) => (
-        <div key={swatch.name} className="flex flex-col items-center gap-2">
+        <div key={swatch.name} className="group flex flex-col items-center gap-2">
           <div
-            className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-cream-dark shadow-sm"
+            className="relative w-16 h-16 rounded-full border border-cream-dark shadow-sm cursor-default"
             style={{ backgroundColor: swatch.hex }}
             aria-label={`${swatch.name}: ${swatch.hex}`}
-          />
-          <span className="font-sans text-[9px] text-wood-light text-center leading-tight max-w-[3.5rem]">
+            title={swatch.hex}
+          >
+            {/* Hex tooltip on hover */}
+            <span className="absolute -top-7 left-1/2 -translate-x-1/2 bg-wood text-ivory font-sans text-[9px] px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
+              {swatch.hex}
+            </span>
+          </div>
+          <span className="font-sans text-[9px] text-wood-light text-center leading-tight max-w-[4rem]">
             {swatch.name}
           </span>
         </div>
@@ -104,6 +110,7 @@ export default function DressCode() {
                 {option.attire.map((name) => (
                   <h3
                     key={name}
+                    lang="ms"
                     className="font-serif text-xl md:text-2xl font-medium text-wood"
                   >
                     {name}

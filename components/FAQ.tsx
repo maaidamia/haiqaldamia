@@ -40,8 +40,7 @@ const FAQS: FAQItem[] = [
   },
   {
     question: "How can I contact the couple?",
-    answer:
-      "For any questions not answered here, please reach out to Maisa at +60132960591 or Haiqal at +60192729245.",
+    answer: "__CONTACT__",
   },
 ];
 
@@ -60,6 +59,10 @@ export default function FAQ() {
           <div className="ornament mt-6 max-w-xs mx-auto">
             <span className="text-gold text-xl">✦</span>
           </div>
+          <p className="font-sans text-sm text-wood-light mt-6 leading-relaxed max-w-lg mx-auto">
+            If your question isn&rsquo;t answered here, reach out to us directly — we&rsquo;d love
+            to hear from you.
+          </p>
         </div>
 
         <Accordion.Root type="single" collapsible className="flex flex-col divide-y divide-cream-dark">
@@ -92,9 +95,29 @@ export default function FAQ() {
                 </Accordion.Trigger>
               </Accordion.Header>
               <Accordion.Content className="overflow-hidden data-[state=open]:animate-[slideDown_200ms_ease-out] data-[state=closed]:animate-[slideUp_200ms_ease-out]">
-                <p className="font-sans text-sm text-wood-light leading-relaxed pb-6 pr-8">
-                  {faq.answer}
-                </p>
+                {faq.answer === "__CONTACT__" ? (
+                  <p className="font-sans text-sm text-wood-light leading-relaxed pb-6 pr-8">
+                    Reach out to{" "}
+                    <a
+                      href="tel:+60132960591"
+                      className="text-gold hover:text-wood transition-colors underline underline-offset-2"
+                    >
+                      Maisa
+                    </a>
+                    {" "}or{" "}
+                    <a
+                      href="tel:+60192729245"
+                      className="text-gold hover:text-wood transition-colors underline underline-offset-2"
+                    >
+                      Haiqal
+                    </a>
+                    {" "}and we’ll get back to you as soon as possible.
+                  </p>
+                ) : (
+                  <p className="font-sans text-sm text-wood-light leading-relaxed pb-6 pr-8">
+                    {faq.answer}
+                  </p>
+                )}
               </Accordion.Content>
             </Accordion.Item>
           ))}

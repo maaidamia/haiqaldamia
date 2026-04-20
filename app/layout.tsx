@@ -26,6 +26,15 @@ export const metadata: Metadata = {
     description:
       "We are getting married! Join us at Rumah Abang Jamil, Klang. #HaiMaiLove",
     type: "website",
+    locale: "ms_MY",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Maisa & Haiqal — 19 September 2026",
+      },
+    ],
   },
 };
 

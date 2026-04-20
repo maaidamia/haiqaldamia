@@ -2,10 +2,13 @@
 
 import { useState } from "react";
 
+type Attendance = "attending" | "regrets" | "";
+
 type FormState = {
   name: string;
   pax: number;
   phone: string;
+  attending: Attendance;
 };
 
 type SubmitStatus = "idle" | "loading" | "success" | "error";
@@ -14,12 +17,16 @@ const initialForm: FormState = {
   name: "",
   pax: 1,
   phone: "",
+  attending: "",
 };
 
 const inputClass =
   "w-full bg-transparent border-b border-cream-dark focus:border-gold outline-none font-sans text-sm text-wood py-2 transition-colors duration-200 placeholder:text-wood-light/50";
 
 const labelClass = "font-sans text-[10px] tracking-[0.2em] uppercase text-gold";
+
+// Warm terracotta for errors — fits the earthy palette instead of jarring red-500
+const errorClass = "font-sans text-xs text-[#C2704E]" as const;
 
 export default function RSVP() {
   const [form, setForm] = useState<FormState>(initialForm);
@@ -46,6 +53,10 @@ export default function RSVP() {
       setErrorMsg("Please fill in your name and phone number.");
       return;
     }
+    if (!form.attending) {
+      setErrorMsg("Please let us know if you will be attending.");
+      return;
+    }
     setErrorMsg("");
     setStatus("loading");
 
@@ -64,7 +75,7 @@ export default function RSVP() {
   };
 
   return (
-    <section id="rsvp" className="py-24 bg-cream">
+    <section id="rsvp" className="py-24 bg-ivory">
       <div className="max-w-2xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-14">
@@ -127,6 +138,41 @@ export default function RSVP() {
           </div>
         ) : (
           <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-8">
+            {/* Attendance confirmation */}
+            <div className="flex flex-col gap-3">
+              <span className={labelClass}>
+                Will you be attending? <span className="text-gold">*</span>
+              </span>
+              <div className="flex gap-4">
+                {([
+                  { value: "attending", label: "Joyfully Attending" },
+                  { value: "regrets", label: "Sending Love, Unable to Attend" },
+                ] as { value: Attendance; label: string }[]).map(({ value, label }) => (
+                  <label
+                    key={value}
+                    className={`flex-1 flex items-center justify-center gap-2 border py-3 px-4 cursor-pointer font-sans text-xs tracking-[0.1em] transition-colors duration-200 ${
+                      form.attending === value
+                        ? "border-gold bg-gold/10 text-wood"
+                        : "border-cream-dark text-wood-light hover:border-gold/50"
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      name="attending"
+                      value={value}
+                      checked={form.attending === value}
+                      onChange={() =>
+                        setForm((prev) => ({ ...prev, attending: value }))
+                      }
+                      className="sr-only"
+                      aria-label={label}
+                    />
+                    {label}
+                  </label>
+                ))}
+              </div>
+            </div>
+
             {/* Full name */}
             <div className="flex flex-col gap-2">
               <label htmlFor="name" className={labelClass}>
@@ -163,8 +209,10 @@ export default function RSVP() {
               />
             </div>
 
-            {/* Number of pax */}
-            <div className="flex flex-col gap-2">
+            {/* Number of pax — only show when attending */}
+            <div className={`flex flex-col gap-2 transition-opacity duration-300 ${
+              form.attending === "attending" ? "opacity-100" : "opacity-40 pointer-events-none"
+            }`}>
               <span className={labelClass}>
                 Number of Pax <span className="text-gold">*</span>
               </span>
@@ -194,14 +242,14 @@ export default function RSVP() {
               </div>
             </div>
 
-            {/* Error message */}
+            {/* Error message — warm terracotta instead of red-500 */}
             {errorMsg && (
-              <p className="font-sans text-xs text-red-500" role="alert">
+              <p className={errorClass} role="alert">
                 {errorMsg}
               </p>
             )}
             {status === "error" && (
-              <p className="font-sans text-xs text-red-500" role="alert">
+              <p className={errorClass} role="alert">
                 Something went wrong. Please try again or contact us directly.
               </p>
             )}

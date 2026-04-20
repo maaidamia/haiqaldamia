@@ -5,12 +5,13 @@ type RSVPPayload = {
   name: string;
   pax: number;
   phone: string;
+  attending: "attending" | "regrets" | "";
 };
 
 export async function POST(req: NextRequest) {
   try {
     const body = (await req.json()) as RSVPPayload;
-    const { name, pax, phone } = body;
+    const { name, pax, phone, attending } = body;
 
     if (!name || !phone) {
       return NextResponse.json(
@@ -37,7 +38,7 @@ export async function POST(req: NextRequest) {
 
     await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
-      range: "Sheet1!A:D",
+      range: "Sheet1!A:E",
       valueInputOption: "RAW",
       requestBody: {
         values: [
@@ -46,6 +47,7 @@ export async function POST(req: NextRequest) {
             name,
             phone,
             pax,
+            attending === "attending" ? "Yes" : "Regrets",
           ],
         ],
       },

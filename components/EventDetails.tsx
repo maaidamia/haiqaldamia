@@ -77,7 +77,7 @@ export default function EventDetails() {
           <div className="flex items-start gap-4">
             <StarAndCrescentIcon />
             <div>
-              <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-gold mb-1">
+              <p lang="ms" className="font-sans text-[10px] tracking-[0.25em] uppercase text-gold mb-1">
                 Akad Nikah
               </p>
               <h3 className="font-serif text-2xl md:text-3xl font-medium text-wood">
@@ -115,7 +115,7 @@ export default function EventDetails() {
           {/* Navigation buttons */}
           <div className="flex flex-wrap gap-4 mt-2">
             <a
-              href="https://www.google.com/maps/search/Rumah+Abang+Jamil+Klang"
+              href="https://www.google.com/maps/search/?api=1&query=Rumah+Abang+Jamil+Klang+Selangor+Malaysia"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Get directions via Google Maps"
@@ -125,7 +125,7 @@ export default function EventDetails() {
               Google Maps
             </a>
             <a
-              href="https://waze.com/ul?q=Rumah+Abang+Jamil+Klang"
+              href="https://waze.com/ul?q=Rumah+Abang+Jamil+Klang+Selangor&navigate=yes"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Get directions via Waze"

@@ -46,9 +46,9 @@ export default function Footer() {
           <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-gold/70">
             Together in love
           </p>
-          <h2 className="font-serif text-5xl md:text-6xl font-light italic text-ivory">
+          <p className="font-serif text-5xl md:text-6xl font-light italic text-ivory">
             Maisa <span className="text-gold">&amp;</span> Haiqal
-          </h2>
+          </p>
           <GeometricOrnament />
           <p className="font-serif text-lg italic text-gold/70">
             #HaiMaiLove

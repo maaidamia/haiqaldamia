@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type NavItem = {
   id: string;
@@ -20,34 +20,33 @@ export default function Nav() {
   const [activeSection, setActiveSection] = useState("hero");
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const prefersReduced = useRef(
+    typeof window !== "undefined"
+      ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      : false
+  );
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 60);
+      const scrollY = window.scrollY;
+      const docH = document.documentElement.scrollHeight - window.innerHeight;
+      setIsScrolled(scrollY > 60);
+      setScrollProgress(docH > 0 ? (scrollY / docH) * 100 : 0);
+
+      // Single-pass active section detection — more reliable than multi-observer
+      const midpoint = window.innerHeight * 0.4;
+      let current = "hero";
+      for (const { id } of NAV_ITEMS) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        if (el.getBoundingClientRect().top <= midpoint) current = id;
+      }
+      setActiveSection(current);
     };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const observers: IntersectionObserver[] = [];
-
-    NAV_ITEMS.forEach(({ id }) => {
-      const el = document.getElementById(id);
-      if (!el) return;
-
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) setActiveSection(id);
-        },
-        { threshold: 0.3, rootMargin: "-80px 0px 0px 0px" }
-      );
-
-      observer.observe(el);
-      observers.push(observer);
-    });
-
-    return () => observers.forEach((o) => o.disconnect());
   }, []);
 
   const handleNavClick = (id: string) => {
@@ -63,6 +62,14 @@ export default function Nav() {
           : "bg-transparent"
       }`}
     >
+      {/* Scroll progress bar — only visible once scrolled, respects prefers-reduced-motion */}
+      {!prefersReduced.current && (
+        <div
+          className="absolute bottom-0 left-0 h-px bg-gold/60 transition-none"
+          style={{ width: `${scrollProgress}%` }}
+          aria-hidden="true"
+        />
+      )}
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Monogram */}
         <button
